@@ -142,10 +142,66 @@ int ejercicio9() {
 
     return 0;
 }
+int ejercicio10(){
+
+    int a;
+
+    do{
+        cout << "Ingrese un numero entre 1 y 100:" << endl;
+        cin >> a;
+
+    }while(a>100);
+
+    for (int i = 1; i <= 100; ++i) {
+        if (i%a == 0){
+            cout << endl << i << endl;}
+
+    }
+
+    return 0;
+}
+int ejercicio11(){
+    int a;
+    cout<<"Digite un numero"<< endl;
+    cin>>a;
+    for(int i=1; i<11;i++){
+        cout<<a<<" * "<<i<<" = "<< a*i<<endl;
+
+    }
+    return 0;
+}
+int ejercicio12(){
+    int a;
+    cout<<"Escriba un numero"<<endl;
+    cin>>a;
+    for(int i=1; i<6;i++){
+         cout<<a<<"∧"<<i<<"="<<a <<endl;
+
+    }
+    return 0;
+}
+
+
+int ejercicio13(){
+    int a,c=0;
+    cout<<"Escriba un numero";
+    cin>> a;
+    cout<<"Sus divisores son : ";
+    for(int i=1;i<=a;i++){
+        if(a%i==0){
+            cout<< i<<" ";
+            c++;
+        }
+    }
+    cout<< endl;
+    return 0;
+}
+
+
 
 int main()
 {
 
-     ejercicio9();
+     ejercicio13();
 
 }
