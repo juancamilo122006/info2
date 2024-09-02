@@ -600,9 +600,313 @@ int ejercicio30(){
     }
     return 0;
 }
+int problema1(){
+
+    char letra;
+    cout << "Ingrese un caracter:" << endl;
+    cin >> letra;
+
+    if(isalpha(letra)){
+        letra = tolower(letra);
+        if (letra == 'a' || letra == 'e' || letra == 'i' || letra == 'o' || letra == 'u') {
+            cout << endl << letra << " es una vocal." << endl;
+        }
+
+        else{
+            cout << endl << letra << " es una consonante." << endl;
+        }
+    }
+    else{
+        cout << endl << letra << " no es una letra." << endl;
+    }
+    return 0;
+}
+
+int problema2(){
+
+    int plata, devuelta50k, devuelta20k, devuelta10k, devuelta5k, devuelta2k, devuelta1k, devuelta500, devuelta200, devuelta100, devuelta50;
+    cout << "Ingrese la cantidad de dinero:" << endl;
+    cin >> plata;
+    int faltante = plata;
+
+    devuelta50k = faltante/50000;
+    faltante %= 50000;
+    devuelta20k = faltante/20000;
+    faltante %= 20000;
+    devuelta10k = faltante/10000;
+    faltante %= 10000;
+    devuelta5k = faltante/5000;
+    faltante %= 5000;
+    devuelta2k = faltante/2000;
+    faltante %= 2000;
+    devuelta1k = faltante/1000;
+    faltante %= 1000;
+
+    devuelta500 = faltante/500;
+    faltante %= 500;
+    devuelta200 = faltante/200;
+    faltante %= 200;
+    devuelta100 = faltante/100;
+    faltante %= 100;
+    devuelta50 = faltante/50;
+    faltante %= 50;
+
+    cout << endl << "50000: " << devuelta50k << endl;
+    cout << "20000: " << devuelta20k << endl;
+    cout << "10000: " << devuelta10k << endl;
+    cout << "5000: " << devuelta5k << endl;
+    cout << "2000: " << devuelta2k << endl;
+    cout << "1000: " << devuelta1k << endl;
+    cout << "500: " << devuelta500 << endl;
+    cout << "200: " << devuelta200 << endl;
+    cout << "100: " << devuelta100 << endl;
+    cout << "50: " << devuelta50 << endl;
+    cout << "Faltante: " << faltante << endl;
+    return 0;
+}
+
+int problema3(){
+
+    int mes, dia;
+    do{
+        cout << "Introduzca el numero del mes: " <<  endl;
+        cin >> mes;
+
+    }while(mes>12 || mes < 0);
+
+    cout << "Introduzca el numero del dia: " <<  endl;
+    cin >> dia;
+    if(dia>31 || dia<1){
+        cout <<  endl << dia << "/" << mes << " es una fecha invalida" << endl;
+    }
+    else{
+        if(mes==2){
+            if(dia==29){
+                cout <<  endl << dia << "/" << mes << " es valida en bisiesto" << endl;}
+            else if (dia>29){
+                cout <<  endl << dia << "/" << mes <<  " es una fecha invalida" << endl;
+            }
+            else {
+                cout <<  endl << dia << "/" << mes << " es una fecha valida" << endl;
+            }
+        }
+
+        else if (dia == 31 && mes%2 != 0){
+            cout <<  endl << dia << "/" << mes << " es una fecha invalida" << endl;
+        }
+        else{
+            cout <<  endl << dia << "/" << mes << " es una fecha valida" << endl;
+        }
+    }
+
+    return 0;
+}
+
+int problema4(){
+
+    int horaInicial, suma_tiempo;
+    cout << "Ingrese la hora inicial en formato hhmm(horas minutos): ";
+    cin >> horaInicial;
+    cout << "Ingrese el tiempo que le desea sumar en formato hhmm(horas minutos): ";
+    cin >> suma_tiempo;
+
+    int horasI = horaInicial/100;
+    int minsI = horaInicial % 100;
+    if (horasI < 0 || horasI >= 24 || minsI < 0 || minsI >= 60) {
+        cout << endl << horaInicial << " es un tiempo invalido." << endl;
+        return 0;
+    }
+
+    int tiempo_horas = suma_tiempo/100;
+    int tiempo_mins = suma_tiempo % 100;
+    int total_mins = (horasI*60 + minsI) + (tiempo_horas*60 + tiempo_mins);
+
+    int horasF = (total_mins/60) % 24;
+    int minsF = total_mins % 60;
+    cout << endl << "La hora es " << horasF << minsF << "." << endl;
+
+    return 0;
+}
+
+int problema5(){
+
+    int a;
+    cout << "Ingrese un numero entero impar: ";
+    cin >> a;
+    int espacios = a/2;
+    int filas = espacios;
+    int asteriscos = 1;
+    cout << endl;
+
+    for (int i = 0; i < filas; ++i) {
+        for (int j = 0; j < espacios; ++j) {
+            cout << ' ';
+        }
+        for (int x = 0; x < asteriscos; ++x) {
+            cout << '*';
+        }
+        for (int p = 0; p < espacios; ++p) {
+            cout << ' ';
+        }
+        cout << endl;
+        espacios -= 1;
+        asteriscos += 2;
+    }
+
+    for (int i = 0; i < a; ++i) {
+        cout << '*';
+
+    }
+    cout << endl;
+
+    asteriscos = a-2;
+    espacios = 1;
+
+    for (int i = 0; i < filas; ++i) {
+        for (int j = 0; j < espacios; ++j) {
+            cout << ' ';
+        }
+        for (int x = 0; x < asteriscos; ++x) {
+            cout << '*';
+        }
+        for (int p = 0; p < espacios; ++p) {
+            cout << ' ';
+        }
+        cout << endl;
+        espacios += 1;
+        asteriscos -= 2;
+    }
+
+    return 0;
+}
+
+int problema6(){
+
+    int a;
+    cout << "Ingrese el numero de elementos para la aproximacion de e: ";
+    cin >> a;
+
+    double e = 0.0;
+    long long factorial = 1;
+
+    for (int i = 0; i < a; i++) {
+        if (i > 0) {
+            factorial *= i;
+        }
+        e += 1.0 / factorial;
+    }
+
+    cout << endl << "e es aproximadamente: " << e << endl;
+
+    return 0;
+}
+
+int problema7(){
+
+    int a, n3;
+    cout << "Ingrese un numero, este numero va a ser el limite superior de la serie fibonacci: ";
+    cin >> a;
+    int n1 = 1;
+    int n2 = 1;
+    int sumaPares = 0;
+
+    while (n2 <= a){
+        if(n2 % 2 == 0){
+            sumaPares +=n2;
+        }
+        n3 = n1+n2;
+        n1 = n2;
+        n2 = n3;
+    }
+
+    cout << endl << "El resultado de la suma es: " << sumaPares << endl;
+    return 0;
+}
+
+int problema8(){
+
+    int a, b, c;
+    cout << "Ingrese tres numeros: ";
+    cin >> a;
+    cin >> b;
+    cin >> c;
+    int suma = 0;
+
+    cout << endl;
+
+    for (int i = a; i < c; i+=a) {
+        suma += i;
+        cout << i << " + ";
+    }
+
+    for (int i = b; i < c; i+=b){
+        if (i%a != 0){
+            suma += i;
+            cout << i << " + ";
+        }
+    }
+
+    cout << " = " << suma;
+
+    return 0;
+}
+
+int problema9(){
+
+    int a, digito;
+    cout << "Ingrese un numero entero N: ";
+    cin >> a;
+    int suma = 0;
+    int temp = a;
+
+    while(temp > 0){
+        digito = temp % 10;
+        int potencia = 1;
+
+        for (int i = 0; i < digito; ++i) {
+            potencia *= digito;
+        }
+        suma += potencia;
+        temp /= 10;
+    }
+
+    cout << endl << "El resultado de la suma es: " << suma << endl;
+
+    return 0;
+}
+
+int problema10(){
+
+    int n;
+    cout << "Ingrese el numero n: ";
+    cin >> n;
+    int cont = 0;
+    int num = 2;
+
+    while (cont<n) {
+        bool primo = true;
+        for (int i = 2; i * i <= num ; ++i) {
+            if(num%i == 0){
+                primo = false;
+                break;
+            }
+        }
+
+        if(primo){
+            cont++;
+        }
+
+        if(cont < n){
+            num++;
+        }
+
+    }
+    cout << endl << "El primo numero " << n << " es: " << num << endl;
+    return 0;
+}
 int main()
 {
 
-     ejercicio30();
+     problema10();
 
 }
