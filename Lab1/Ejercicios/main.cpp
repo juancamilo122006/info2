@@ -540,6 +540,7 @@ int ejercicio28(){
 
 int ejercicio29(){
     cout << "Piensa en un numero entre el 1 y el 100, lo voy a adivinar a continuacion." << endl;
+
     cout << endl << "Si el numero es mayor ingresa: '>' " << endl;
     cout << endl << "Si el numero es menor ingresa: '<' " << endl;
     cout << endl << "Si acerte el numero ingresa: '=' " << endl;
