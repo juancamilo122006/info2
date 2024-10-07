@@ -16,6 +16,7 @@ void rotar90(int matriz[N][N], int rotada[N][N]);
 void separar_numeros_y_texto(std::string input, std::string& texto, std::string& numeros);
 void verificar_cuadrado_magico();
 void calcular_caminos();
+int convertirCadenaANumero(std::string cadena);
 int main()
 {
     problema14();
@@ -32,6 +33,8 @@ int main()
     cout << "El promedio resultante es: " << promedio << endl;
 
     problema14();
+
+
 
 }
 
@@ -195,13 +198,14 @@ int convertirCadenaANumero(std::string cadena) {
     for (int i = 0; i < cadena.length(); i++) {
         char c = cadena[i];
 
-        if (c < '0' || c > '9') {
+        if (c < '0' || c > '9'){
             std::cerr << "Error: La cadena contiene caracteres no numéricos." << std::endl;
             return -1;
         }
         numero = numero * 10 + (c - '0');
     }
     return numero;
+}
 
     // Función para separar números del resto de caracteres
 
@@ -217,7 +221,7 @@ int convertirCadenaANumero(std::string cadena) {
             }
         }
 
-        // Imprimir resultados formateados directamente
+        // Imprimir resultado
         std::cout << "Original: " << input << ".\nTexto: " << texto << ". Numero: " << numeros << "." << std::endl;
     }
 
@@ -308,7 +312,7 @@ int convertirCadenaANumero(std::string cadena) {
     }
 
     // Función para calcular el número de caminos en una cuadrícula nxn
-    void calcular_caminos() {
+    /*void calcular_caminos(){
         int n;
 
         // Solicitar el tamaño de la cuadrícula
@@ -323,7 +327,7 @@ int convertirCadenaANumero(std::string cadena) {
         }
 
         // Función para calcular el factorial
-        unsigned long long factorial(int num) {
+        auto factorial(int num) {
             unsigned long long result = 1;
             for (int i = 1; i <= num; ++i) {
                 result *= i;
@@ -338,4 +342,4 @@ int convertirCadenaANumero(std::string cadena) {
 
         // Imprimir el resultado
         cout << "Para una malla de " << n << "x" << n << " hay " << caminos << " caminos." << endl;
-    }
+    }*/
